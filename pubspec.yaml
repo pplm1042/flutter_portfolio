@@ -37,6 +37,8 @@ dependencies:
   get: ^4.5.1
   url_strategy: ^0.2.0
   scrollable_positioned_list: ^0.2.3
+  url_launcher: ^6.0.18
+  line_icons: ^2.0.1
 
 dev_dependencies:
   flutter_test:
