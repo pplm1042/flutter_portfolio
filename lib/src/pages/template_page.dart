@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/pages/main_page.dart';
 import 'package:flutter_portfolio/src/components/footer.dart';
 import 'package:flutter_portfolio/src/components/web_app_bar.dart';
+import 'package:flutter_portfolio/src/pages/profile_page.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class TemplatePage extends StatelessWidget {
@@ -10,7 +11,7 @@ class TemplatePage extends StatelessWidget {
 
   final List<Widget> pages = const <Widget>[
     MainPage(),
-    // ProfilePage(),
+    ProfilePage(),
     // SkillPage(),
     // ProjectPage(),
     // CareerPage(),

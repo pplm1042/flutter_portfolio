@@ -80,6 +80,9 @@ flutter:
         - asset: fonts/NotoSans/NotoSans-BoldItalic.ttf
         - asset: fonts/NotoSans/NotoSans-Italic.ttf
         - asset: fonts/NotoSans/NotoSans-Regular.ttf
+    - family: Nanum
+      fonts:
+        - asset: fonts/Nanum/NanumBrushScript-Regular.ttf
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a

@@ -32,33 +32,27 @@
     <title>flutter_portfolio</title>
     <link rel="manifest" href="manifest.json">
     <style>
-        @-webkit-keyframes wiggle {
-            0% {
-                left:100px;
+        @keyframes boom {
+            from {
+                opacity : 0;
+                top: 40%;
+                -webkit-transform: translateY(-40%)
+                transform: translateY(-40%);
               }
-              100% {
-                left:300px;
+            to{
+                opacity : 1;
+                top : 50%;
+                -webkit-transform: translateY(-50%)
+                transform: translateY(-50%);
               }
         }
-
-        div{
-            animation-name: wiggle;
-            animation-duration:2s;
-            animation-duration: leaner;
-            animation-iteration-count:3;
-            animation-direction:alternate;
-            animation-fill-mode: forwards;
-        }
-
-        img{
-
-            position: absolute;
+        .photo{
+            position : absolute;
             top: 50%;
             left: 50%;
             -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
-            text-align: center;
-            width: 100%;
+            animation : boom 2s;
         }
     </style>
 
@@ -69,9 +63,9 @@
      https://developers.google.com/web/fundamentals/primers/service-workers -->
 
 
-<div>
-    <img src="min_portfolio.webp" alt="min", width="1600", height="1000">
-</div>
+<section>
+    <img class="photo", src="min_portfolio.webp" alt="min", width="1200px", height="800px">
+</section>
 
 <script type="module">
   // Import the functions you need from the SDKs you need
