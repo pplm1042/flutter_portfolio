@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/pages/data_view.dart';
 import 'package:flutter_portfolio/src/pages/information_view.dart';
 import 'package:flutter_portfolio/src/resources/data_model.dart';
 import 'package:flutter_portfolio/src/resources/horizontal_dashed_divider.dart';
@@ -33,38 +34,39 @@ class ProfilePage extends StatelessWidget {
 
   static const List<DataModel> project = <DataModel>[
     DataModel(
-        period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
+        period: '2022. 01. ~ 2022. 02.', detail: '포트폴리오 개발(Flutter, Dart, Firebase, GetX)'),
     DataModel(
-        period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
+        period: '2020. 04. ~ 2020. 07.', detail: '전주시 가로수 관리 시스템(Jeus6.0, Toad 6.0, Spring FrameWork, Java)'),
     DataModel(
-        period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
+        period: '2019. 07. ~ 2019. 09.', detail: '스트리머 편집자 매칭 사이트 ( HTML, CSS, JavaScript, Java8, JSP, Oracle 11g, Spring, Jquery, MyBatis, JSTL)'),
     DataModel(
-        period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
+        period: '2019. 04. ~ 2019. 06.', detail: 'PC방 관리 프로그램( Java 8 )'),
     DataModel(
-        period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
+        period: '2014.', detail: '당첨번호 추첨 프로그램 ( C# )'),
     DataModel(
-        period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
+        period: '2013.', detail: '도서관 자리예약 프로그램 ( C )'),
   ];
 
   static const List<DataModel> certification = <DataModel>[
     DataModel(
-        period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
+        period: '2021. 03.', detail: 'TOEIC 750'),
     DataModel(
-        period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
+        period: '2019. 11.', detail: '정보처리기사'),
     DataModel(
-        period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
+        period: '2019. 08.', detail: 'OPIC IM2'),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 800,
       decoration: BoxDecoration(
           image: DecorationImage(
               image: NetworkImage(
                   'https://cdn.crowdpic.net/list-thumb/thumb_l_8E1A44DD8454EDD9497EDF125C584461.jpg'),
               fit: BoxFit.cover)),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        padding: const EdgeInsets.only(top: 100, left: 10, right: 10),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.center,
@@ -74,7 +76,7 @@ class ProfilePage extends StatelessWidget {
               style: TextStyle(fontSize: 40),
             ),
             SizedBox(
-              height: 30,
+              height: 70,
             ),
             IntrinsicHeight(
               child: Row(
@@ -88,9 +90,9 @@ class ProfilePage extends StatelessWidget {
                   Expanded(
                     child: Column(
                       children: [
-                        InfomationView(informationList: info),
+                        InformationView(informationList: info),
                         HorizontalDashedDivider(space: 40),
-                        Text('Education'),
+                        DataView(title: 'Education', dataList: education),
                       ],
                     ),
                   ),
@@ -101,9 +103,9 @@ class ProfilePage extends StatelessWidget {
                   Expanded(
                     child: Column(
                       children: [
-                        Text('Project'),
+                        DataView(title: 'Project', dataList: project),
                         HorizontalDashedDivider(space: 40),
-                        Text('Certification'),
+                        DataView(title: 'Certification', dataList: certification),
                       ],
                     ),
                   ),

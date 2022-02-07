@@ -34,6 +34,24 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
                   duration: const Duration(milliseconds: 500),
                 ),
                 child: Text(
+                  'Main',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 40),
+              TextButton(
+                style: ButtonStyle(
+                  fixedSize:
+                  MaterialStateProperty.all(const Size.fromWidth(100)),
+                ),
+                onPressed: () => itemScrollController.scrollTo(
+                  index: 1,
+                  duration: const Duration(milliseconds: 500),
+                ),
+                child: Text(
                   'Profile',
                   style: TextStyle(
                   color: Colors.white,
@@ -48,7 +66,7 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
                   MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
-                  index: 1,
+                  index: 2,
                   duration: const Duration(milliseconds: 500),
                 ),
                 child: Text(
@@ -66,7 +84,7 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
                   MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
-                  index: 2,
+                  index: 3,
                   duration: const Duration(milliseconds: 700),
                 ),
                 child: Text(
@@ -84,7 +102,7 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
                   MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
-                  index: 3,
+                  index: 4,
                   duration: const Duration(milliseconds: 700),
                 ),
                 child: Text(
@@ -102,7 +120,7 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
                   MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
-                  index: 4,
+                  index: 5,
                   duration: const Duration(milliseconds: 700),
                 ),
                 child: Text(
