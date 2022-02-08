@@ -19,7 +19,7 @@ class InformationView extends StatelessWidget {
             '박민 / Min Park', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Text('1994.01.09. / 경기도 용인시', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 10),
+          const SizedBox(height: 30),
         ] +
             informationList
                 .map(

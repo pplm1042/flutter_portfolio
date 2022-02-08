@@ -27,6 +27,8 @@ class ProfilePage extends StatelessWidget {
 
   static const List<DataModel> education = <DataModel>[
     DataModel(
+        period: '2020. 08. ~ 2020. 11.', detail: '패스트캠퍼스 코딩테스트 + 온라인 완주반 온라인 클래스 수료'),
+    DataModel(
         period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
     DataModel(period: '2012. 03. ~ 2016. 02.', detail: '청주대학교 전자공학과 졸업'),
     DataModel(period: '2009. 03. ~ 2012. 02.', detail: '청주세광고등학교 졸업'),
@@ -34,7 +36,7 @@ class ProfilePage extends StatelessWidget {
 
   static const List<DataModel> project = <DataModel>[
     DataModel(
-        period: '2022. 01. ~ 2022. 02.', detail: '포트폴리오 개발(Flutter, Dart, Firebase, GetX)'),
+        period: '2022. 01. ~ 2022. 02.', detail: 'Flutter 웹 프로젝트(포트폴리오) 개발(Flutter, Dart, Firebase, GetX)'),
     DataModel(
         period: '2020. 04. ~ 2020. 07.', detail: '전주시 가로수 관리 시스템(Jeus6.0, Toad 6.0, Spring FrameWork, Java)'),
     DataModel(
@@ -59,14 +61,13 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 800,
       decoration: BoxDecoration(
           image: DecorationImage(
               image: NetworkImage(
                   'https://cdn.crowdpic.net/list-thumb/thumb_l_8E1A44DD8454EDD9497EDF125C584461.jpg'),
               fit: BoxFit.cover)),
       child: Padding(
-        padding: const EdgeInsets.only(top: 100, left: 10, right: 10),
+        padding: const EdgeInsets.symmetric(vertical: 120, horizontal: 40),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,7 +77,7 @@ class ProfilePage extends StatelessWidget {
               style: TextStyle(fontSize: 40),
             ),
             SizedBox(
-              height: 70,
+              height: 100,
             ),
             IntrinsicHeight(
               child: Row(

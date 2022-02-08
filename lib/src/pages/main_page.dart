@@ -1,4 +1,6 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:flutter_portfolio/src/resources/image_with_animated_opacity.dart';
 
 class MainPage extends StatelessWidget {
@@ -6,51 +8,57 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(height: 800,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-          Expanded(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-              Text(
-                "Good Bye Corporation! 반갑습니다.\n",
-                style: TextStyle(fontSize: 45),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 300, horizontal: 40),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+        Expanded(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+            AnimatedTextKit(
+              animatedTexts : [
+                TyperAnimatedText('Good Bye Corporation! 반갑습니다.', textStyle : TextStyle(fontSize: 45), speed: Duration(milliseconds: 100)),
+              ],
+              totalRepeatCount: 1,
+            ),
+            SizedBox(height: 50,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FadeIn(
+                  child: Text(
                     "Flutter 개발자",
                     style: TextStyle(fontSize: 50),
-                  ),
-                  Text(
-                    " 박민 ",
+                  ), duration: Duration(milliseconds: 5000), curve: Curves.easeIn,
+                ),
+                FadeIn(
+                  child : Text(" 박민 ",
                     style: TextStyle(fontFamily: 'Nanum', fontSize: 60),
-                  ),
-                  Text(
+                  ), duration: Duration(milliseconds: 5000), curve: Curves.easeIn,
+                ),
+                FadeIn(
+                  child: Text(
                     "입니다.",
                     style: TextStyle(fontSize: 50),
-                  ),
-                ],
-              ),
-            ]),
-          ),
-          Expanded(
-            child: Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                  width: 300,
-                  height: 320,
-                  child: ImageWithAnimatedOpacity(
-                      image: AssetImage('assets/images/gb_logo.webp',))),
+                  ), duration: Duration(milliseconds: 5000), curve: Curves.easeIn,
+                ),
+              ],
             ),
+          ]),
+        ),
+        Expanded(
+          child: Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+                width: 300,
+                height: 320,
+                child: ImageWithAnimatedOpacity(
+                    image: AssetImage('assets/images/gb_logo.webp',))),
           ),
-        ]),
-      ),
+        ),
+      ]),
     );
   }
 }
