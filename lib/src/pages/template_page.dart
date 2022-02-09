@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/pages/career_page.dart';
 import 'package:flutter_portfolio/src/pages/main_page.dart';
 import 'package:flutter_portfolio/src/components/footer.dart';
 import 'package:flutter_portfolio/src/components/web_app_bar.dart';
 import 'package:flutter_portfolio/src/pages/profile_page.dart';
+import 'package:flutter_portfolio/src/pages/project_page.dart';
 import 'package:flutter_portfolio/src/pages/skill_page.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -14,8 +16,8 @@ class TemplatePage extends StatelessWidget {
     MainPage(),
     ProfilePage(),
     SkillPage(),
-    // ProjectPage(),
-    // CareerPage(),
+    ProjectPage(),
+    CareerPage(),
     // BlogPage(),
     Footer(),
   ];

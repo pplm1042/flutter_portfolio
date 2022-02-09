@@ -26,12 +26,12 @@ class SkillView extends StatelessWidget {
                   (DataModel data) => Padding(
                     padding: const EdgeInsets.only(bottom : 10, left: 50, right: 50),
                     child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(data.period, style: TextStyle(fontWeight: FontWeight.bold),),
+                      Text(data.period, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
                       const SizedBox(width: 10),
                       Flexible(
-                        child: Text(data.detail, style: TextStyle(fontWeight: FontWeight.bold),),
+                        child: Text(data.detail, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
                       ),
                     ],
                 ),
