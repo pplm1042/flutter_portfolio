@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/pages/blog_page.dart';
 import 'package:flutter_portfolio/src/pages/career_page.dart';
 import 'package:flutter_portfolio/src/pages/main_page.dart';
 import 'package:flutter_portfolio/src/components/footer.dart';
@@ -18,7 +19,7 @@ class TemplatePage extends StatelessWidget {
     SkillPage(),
     ProjectPage(),
     CareerPage(),
-    // BlogPage(),
+    BlogPage(),
     Footer(),
   ];
 

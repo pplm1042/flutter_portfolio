@@ -28,8 +28,8 @@ class SkillPage extends StatelessWidget {
   ];
 
   static const List<DataModel> coding = <DataModel>[
-    DataModel(period: '2020. 03. ~ 2020. 10.', detail: '빅데이터기반 AI(인공지능) 전문가 양성 과정 수료'),
-    DataModel(period: '2021. 01. ~ 2021. 08.', detail: '주식회사 브이앤지(GIS기반 웹 솔루션 개발 및 유지보수, REST API 사용)'),
+    DataModel(period: '2019. 03. ~ 2019. 10.', detail: '빅데이터기반 AI(인공지능) 전문가 양성 과정 수료'),
+    DataModel(period: '2020. 01. ~ 2020. 08.', detail: '주식회사 브이앤지(GIS기반 웹 솔루션 개발 및 유지보수, REST API 사용)'),
 
   ];
 

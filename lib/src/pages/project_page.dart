@@ -58,235 +58,243 @@ class ProjectPage extends StatelessWidget {
     'assets/images/enproject_b3.webp',
   ];
 
+
   @override
   Widget build(BuildContext context) {
     final CarouselController car = CarouselController();
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 60.0),
-      child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        // crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            'Project',
-            style: TextStyle(fontSize: 40),
-          ),
-          SizedBox(
-            height: 70,
-          ),
-          IntrinsicHeight(
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: VerticalDivider(thickness: 2.0),
-                ),
-                Expanded(
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
-                        ProjectView(title: '의정부 공간정보시스템, 영남대학교 캠퍼스 관리시스템, 안성시 과세업무지원시스템 유지보수', dataList: project3),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: VerticalDivider(thickness: 2.0),
-                ),
-                Expanded(
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
-                        ProjectView(title: '전주시 가로수 관리 시스템 개발', dataList: project2),
-                        ProjectView(title: '광양시 공간정보시스템 개발', dataList: project1),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: VerticalDivider(thickness: 2.0),
-                ),
-              ],
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                  'assets/images/project_back.webp'),
+              fit: BoxFit.cover)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 60.0),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Project',
+              style: TextStyle(fontSize: 40),
             ),
-          ),
-          IntrinsicHeight(
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: VerticalDivider(thickness: 2.0),
-                ),
-                Expanded(
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ProjectView(title: 'PC방 관리 프로그램', dataList: enprojectA),
-                      ],
+            SizedBox(
+              height: 70,
+            ),
+            IntrinsicHeight(
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          ProjectView(title: '의정부 공간정보시스템, 영남대학교 캠퍼스 관리시스템, 안성시 과세업무지원시스템 유지보수', dataList: project3),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: VerticalDivider(thickness: 2.0),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CarouselSlider(
-                          options: CarouselOptions(
-                            height: 400.0,
-                            autoPlay: true,
-                            enlargeCenterPage: true,
-                            initialPage: c.encoreAIndex.value,
-                            onPageChanged: (index, reason) {
-                              c.encoreAIndex.value = index;
-                            },
-                          ),
-                          carouselController: car,
-                          items: enprojectAImages.asMap().entries.map((entry) {
-                            return Builder(
-                              builder: (BuildContext context) {
-                                return Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                    decoration:
-                                    BoxDecoration(color: Colors.white24,),
-                                    child: Image.asset('${enprojectAImages[entry.key]}',));
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          ProjectView(title: '전주시 가로수 관리 시스템 개발', dataList: project2),
+                          ProjectView(title: '광양시 공간정보시스템 개발', dataList: project1),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                ],
+              ),
+            ),
+            IntrinsicHeight(
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ProjectView(title: 'PC방 관리 프로그램', dataList: enprojectA),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CarouselSlider(
+                            options: CarouselOptions(
+                              height: 400.0,
+                              autoPlay: true,
+                              enlargeCenterPage: true,
+                              initialPage: c.encoreAIndex.value,
+                              onPageChanged: (index, reason) {
+                                c.encoreAIndex.value = index;
                               },
-                            );
-                          }).toList(),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: enprojectAImages.asMap().entries.map((entry)  {
-                            return GestureDetector(
-                              child: Obx (() => Container(
-                                width: 8,
-                                height: 8,
-                                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: c.encoreAIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
-                                ),
-                              ),),
-                              onTap: () => car.animateToPage(entry.key.toInt()),
-                            );
-                          }).toList(),
-                        ),
-
-                        // Obx( () => Text('${c.nowIndex.value}')),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: VerticalDivider(thickness: 2.0),
-                ),
-              ],
-            ),
-          ),
-          IntrinsicHeight(
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: VerticalDivider(thickness: 2.0),
-                ),
-                Expanded(
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ProjectView(title: '스트리머 에디터 매칭 사이트', dataList: enprojectB),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: VerticalDivider(thickness: 2.0),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CarouselSlider(
-                          options: CarouselOptions(
-                            height: 400.0,
-                            autoPlay: true,
-                            enlargeCenterPage: true,
-                            initialPage: c.encoreBIndex.value,
-                            onPageChanged: (index, reason) {
-                              c.encoreBIndex.value = index;
-                            },
+                            ),
+                            carouselController: car,
+                            items: enprojectAImages.asMap().entries.map((entry) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration:
+                                      BoxDecoration(color: Colors.white24,),
+                                      child: Image.asset('${enprojectAImages[entry.key]}',));
+                                },
+                              );
+                            }).toList(),
                           ),
-                          carouselController: car,
-                          items: enprojectBImages.asMap().entries.map((entry) {
-                            return Builder(
-                              builder: (BuildContext context) {
-                                return Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                    decoration:
-                                    BoxDecoration(color: Colors.white24,),
-                                    child: Image.asset('${enprojectBImages[entry.key]}',));
-                              },
-                            );
-                          }).toList(),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: enprojectBImages.asMap().entries.map((entry)  {
-                            return GestureDetector(
-                              child: Obx (() => Container(
-                                width: 8,
-                                height: 8,
-                                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: c.encoreBIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
-                                ),
-                              ),),
-                              onTap: () => car.animateToPage(entry.key.toInt()),
-                            );
-                          }).toList(),
-                        ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: enprojectAImages.asMap().entries.map((entry)  {
+                              return GestureDetector(
+                                child: Obx (() => Container(
+                                  width: 8,
+                                  height: 8,
+                                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: c.encoreAIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
+                                  ),
+                                ),),
+                                onTap: () => car.animateToPage(entry.key.toInt()),
+                              );
+                            }).toList(),
+                          ),
 
-                        // Obx( () => Text('${c.nowIndex.value}')),
-                      ],
+                          // Obx( () => Text('${c.nowIndex.value}')),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: VerticalDivider(thickness: 2.0),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+            IntrinsicHeight(
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ProjectView(title: '스트리머 에디터 매칭 사이트', dataList: enprojectB),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CarouselSlider(
+                            options: CarouselOptions(
+                              height: 400.0,
+                              autoPlay: true,
+                              enlargeCenterPage: true,
+                              initialPage: c.encoreBIndex.value,
+                              onPageChanged: (index, reason) {
+                                c.encoreBIndex.value = index;
+                              },
+                            ),
+                            carouselController: car,
+                            items: enprojectBImages.asMap().entries.map((entry) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration:
+                                      BoxDecoration(color: Colors.white24,),
+                                      child: Image.asset('${enprojectBImages[entry.key]}',));
+                                },
+                              );
+                            }).toList(),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: enprojectBImages.asMap().entries.map((entry)  {
+                              return GestureDetector(
+                                child: Obx (() => Container(
+                                  width: 8,
+                                  height: 8,
+                                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: c.encoreBIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
+                                  ),
+                                ),),
+                                onTap: () => car.animateToPage(entry.key.toInt()),
+                              );
+                            }).toList(),
+                          ),
+
+                          // Obx( () => Text('${c.nowIndex.value}')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
