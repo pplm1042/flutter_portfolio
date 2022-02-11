@@ -9,7 +9,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 300, horizontal: 40),
+      padding: const EdgeInsets.symmetric(vertical: 200, horizontal: 40),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
@@ -19,7 +19,7 @@ class MainPage extends StatelessWidget {
               children: <Widget>[
             AnimatedTextKit(
               animatedTexts : [
-                TyperAnimatedText('Good Bye Corporation! 반갑습니다.', textStyle : TextStyle(fontSize: 45), speed: Duration(milliseconds: 100)),
+                TyperAnimatedText('Welcome to my homepage!', textStyle : TextStyle(fontSize: 45), speed: Duration(milliseconds: 100)),
               ],
               totalRepeatCount: 1,
             ),
@@ -52,10 +52,10 @@ class MainPage extends StatelessWidget {
           child: Align(
             alignment: Alignment.center,
             child: SizedBox(
-                width: 300,
-                height: 320,
+                width: 400,
+                height: 500,
                 child: ImageWithAnimatedOpacity(
-                    image: AssetImage('assets/images/gb_logo.webp',))),
+                    image: AssetImage('assets/images/flutter.webp',))),
           ),
         ),
       ]),
