@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/controller/project_controller.dart';
 import 'package:flutter_portfolio/src/pages/project_view.dart';
+import 'package:flutter_portfolio/src/resources/horizontal_dashed_divider.dart';
 import 'package:flutter_portfolio/src/resources/project_model.dart';
 import 'package:get/get.dart';
 
@@ -61,7 +62,8 @@ class ProjectPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CarouselController car = CarouselController();
+    final CarouselController car1 = CarouselController();
+    final CarouselController car2 = CarouselController();
 
     return Container(
       decoration: BoxDecoration(
@@ -165,7 +167,7 @@ class ProjectPage extends StatelessWidget {
                                 c.encoreAIndex.value = index;
                               },
                             ),
-                            carouselController: car,
+                            carouselController: car1,
                             items: enprojectAImages.asMap().entries.map((entry) {
                               return Builder(
                                 builder: (BuildContext context) {
@@ -182,17 +184,17 @@ class ProjectPage extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: enprojectAImages.asMap().entries.map((entry)  {
-                              return GestureDetector(
+                              return InkWell(
                                 child: Obx (() => Container(
-                                  width: 8,
-                                  height: 8,
+                                  width: 12,
+                                  height: 12,
                                   margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: c.encoreAIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
                                   ),
                                 ),),
-                                onTap: () => car.animateToPage(entry.key.toInt()),
+                                onTap: () => car1.animateToPage(entry.key),
                               );
                             }).toList(),
                           ),
@@ -209,6 +211,7 @@ class ProjectPage extends StatelessWidget {
                 ],
               ),
             ),
+
             IntrinsicHeight(
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.center,
@@ -249,7 +252,7 @@ class ProjectPage extends StatelessWidget {
                                 c.encoreBIndex.value = index;
                               },
                             ),
-                            carouselController: car,
+                            carouselController: car2,
                             items: enprojectBImages.asMap().entries.map((entry) {
                               return Builder(
                                 builder: (BuildContext context) {
@@ -266,17 +269,17 @@ class ProjectPage extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: enprojectBImages.asMap().entries.map((entry)  {
-                              return GestureDetector(
+                              return InkWell(
                                 child: Obx (() => Container(
-                                  width: 8,
-                                  height: 8,
+                                  width: 12,
+                                  height: 12,
                                   margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: c.encoreBIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
                                   ),
                                 ),),
-                                onTap: () => car.animateToPage(entry.key.toInt()),
+                                onTap: () => car2.animateToPage(entry.key),
                               );
                             }).toList(),
                           ),

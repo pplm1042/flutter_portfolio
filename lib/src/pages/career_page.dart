@@ -13,7 +13,7 @@ class CareerPage extends StatelessWidget {
       position: 'Client Service Specialist',
       detail: [
         '\u2022 글로벌 제약사 및 국내 바이오 회사의 임상프로젝트 관리',
-        '\u2022 Digitalization을 위한 보고서 작성 및 데이터 관리 및 관리',
+        '\u2022 Digitalization을 위한 보고서 작성 및 데이터 분석 및 관리',
         '\u2022 비즈니스 영어를 통한 업무 스케쥴 조정 및 진행'
       ],
     ),

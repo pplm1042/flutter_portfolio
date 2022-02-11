@@ -28,8 +28,8 @@ class SkillPage extends StatelessWidget {
   ];
 
   static const List<DataModel> coding = <DataModel>[
-    DataModel(period: '2019. 03. ~ 2019. 10.', detail: '빅데이터기반 AI(인공지능) 전문가 양성 과정 수료'),
     DataModel(period: '2020. 01. ~ 2020. 08.', detail: '주식회사 브이앤지(GIS기반 웹 솔루션 개발 및 유지보수, REST API 사용)'),
+    DataModel(period: '2019. 03. ~ 2019. 10.', detail: '빅데이터기반 AI(인공지능) 전문가 양성 과정 수료'),
 
   ];
 
@@ -47,7 +47,8 @@ class SkillPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CarouselController car = CarouselController();
+    final CarouselController car1 = CarouselController();
+    final CarouselController car2 = CarouselController();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 60.0),
@@ -148,7 +149,7 @@ class SkillPage extends StatelessWidget {
                               c.algorithmIndex.value = index;
                             },
                           ),
-                          carouselController: car,
+                          carouselController: car1,
                           items: algorithmImages.asMap().entries.map((entry) {
                             return Builder(
                               builder: (BuildContext context) {
@@ -165,17 +166,17 @@ class SkillPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: algorithmImages.asMap().entries.map((entry)  {
-                            return GestureDetector(
+                            return InkWell(
                               child: Obx (() => Container(
-                                width: 8,
-                                height: 8,
+                                width: 12,
+                                height: 12,
                                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: c.algorithmIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
                                 ),
                               ),),
-                              onTap: () => car.animateToPage(entry.key.toInt()),
+                              onTap: () => car1.animateToPage(entry.key),
                             );
                           }).toList(),
                         ),
@@ -232,7 +233,7 @@ class SkillPage extends StatelessWidget {
                               c.codingIndex.value = index;
                             },
                           ),
-                          carouselController: car,
+                          carouselController: car2,
                           items: codingImages.asMap().entries.map((entry) {
                             return Builder(
                               builder: (BuildContext context) {
@@ -249,17 +250,17 @@ class SkillPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: codingImages.asMap().entries.map((entry)  {
-                            return GestureDetector(
+                            return InkWell(
                               child: Obx (() => Container(
-                                width: 8,
-                                height: 8,
+                                width: 12,
+                                height: 12,
                                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: c.codingIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
                                 ),
                               ),),
-                              onTap: () => car.animateToPage(entry.key.toInt()),
+                              onTap: () => car2.animateToPage(entry.key),
                             );
                           }).toList(),
                         ),

@@ -9,7 +9,11 @@ enum UrlKey{
   // skill
   homepage,
 
-  //
+  // Blog
+  algorithm,
+  lecture,
+  record,
+
 
 }
 
@@ -19,6 +23,9 @@ const Map<UrlKey, String> _urls = <UrlKey, String> {
   UrlKey.github : 'https://github.com/pplm1042',
   UrlKey.blog : 'https://blog.naver.com/pplm1042',
   UrlKey.homepage : 'https://pmportfolio-b53ea.web.app/',
+  UrlKey.algorithm : 'https://blog.naver.com/pplm1042/222335006199',
+  UrlKey.lecture : 'https://blog.naver.com/pplm1042/222207305516',
+  UrlKey.record : 'https://blog.naver.com/pplm1042/222388333947'
 
 };
 
