@@ -5,7 +5,6 @@ import 'package:flutter_portfolio/src/pages/template_page.dart';
 import 'package:get/get.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-
 Future<void> initServices() async {
   log("initService");
 }
@@ -33,9 +32,10 @@ Future<void> main() async {
 class MobileApp extends StatelessWidget {
   const MobileApp({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(title: 'Mobile Appbar', home: MobilePage());
+    return GetMaterialApp(title: 'Mobile Appbar', debugShowCheckedModeBanner: false, home: MobilePage());
   }
 }
 
@@ -50,12 +50,18 @@ class MobilePage extends StatelessWidget {
         title: Text('박민 포트폴리오'),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.green,
       ),
       body: Center(
-        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Icon(IconData(0xe56c, fontFamily: 'MaterialIcons')),
-          Text('PC 환경으로 접속 가능합니다.')
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(IconData(0xe56c, fontFamily: 'MaterialIcons')),
+              Text('Mobile 환경은 현재 개발 중입니다.'),
+            ],
+          ),
+          Text('- 2022. 02. 11. 개발자 박민 드림 -')
         ]),
       ),
     );
