@@ -4,6 +4,7 @@ import 'package:flutter_portfolio/src/controller/algorithm_controller.dart';
 import 'package:flutter_portfolio/src/pages/data_view.dart';
 import 'package:flutter_portfolio/src/pages/skill_view.dart';
 import 'package:flutter_portfolio/src/resources/data_model.dart';
+import 'package:flutter_portfolio/src/resources/horizontal_dashed_divider.dart';
 import 'package:flutter_portfolio/src/resources/url.dart';
 import 'package:get/get.dart';
 
@@ -28,9 +29,12 @@ class SkillPage extends StatelessWidget {
   ];
 
   static const List<DataModel> coding = <DataModel>[
-    DataModel(period: '2020. 01. ~ 2020. 08.', detail: '주식회사 브이앤지(GIS기반 웹 솔루션 개발 및 유지보수, REST API 사용)'),
-    DataModel(period: '2019. 03. ~ 2019. 10.', detail: '빅데이터기반 AI(인공지능) 전문가 양성 과정 수료'),
-
+    DataModel(
+        period: '2020. 01. ~ 2020. 08.',
+        detail: '주식회사 브이앤지(GIS기반 웹 솔루션 개발 및 유지보수, REST API 사용)'),
+    DataModel(
+        period: '2019. 03. ~ 2019. 10.',
+        detail: '빅데이터기반 AI(인공지능) 전문가 양성 과정 수료'),
   ];
 
   static const List algorithmImages = [
@@ -46,7 +50,299 @@ class SkillPage extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget _mobileLayout(BuildContext context) {
+    final CarouselController car1 = CarouselController();
+    final CarouselController car2 = CarouselController();
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15.0),
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            'Skill',
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          IntrinsicHeight(
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SkillView(title: 'flutter', dataList: flutter),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+              ],
+            ),
+          ),
+          IntrinsicHeight(
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () => launchUrlByKey(UrlKey.homepage),
+                          child: Image.asset('assets/images/min_portfolio.webp',
+                              fit: BoxFit.fill),
+                        ),
+                        HorizontalDashedDivider(space: 40),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+              ],
+            ),
+          ),
+
+          IntrinsicHeight(
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SkillView(title: '자료구조 및 알고리즘', dataList: algorithm),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+              ],
+            ),
+          ),
+          IntrinsicHeight(
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CarouselSlider(
+                        options: CarouselOptions(
+                          height: 400.0,
+                          autoPlay: true,
+                          enlargeCenterPage: true,
+                          initialPage: c.algorithmIndex.value,
+                          onPageChanged: (index, reason) {
+                            c.algorithmIndex.value = index;
+                          },
+                        ),
+                        carouselController: car1,
+                        items: algorithmImages.asMap().entries.map((entry) {
+                          return Builder(
+                            builder: (BuildContext context) {
+                              return Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white24,
+                                  ),
+                                  child: Image.asset(
+                                    '${algorithmImages[entry.key]}',
+                                  ));
+                            },
+                          );
+                        }).toList(),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: algorithmImages.asMap().entries.map((entry) {
+                          return InkWell(
+                            child: Obx(
+                              () => Container(
+                                width: 12,
+                                height: 12,
+                                margin: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 2),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: c.algorithmIndex.value == entry.key
+                                      ? Color.fromRGBO(0, 0, 0, 0.9)
+                                      : Color.fromRGBO(0, 0, 0, 0.4),
+                                ),
+                              ),
+                            ),
+                            onTap: () => car1.animateToPage(entry.key),
+                          );
+                        }).toList(),
+                      ),
+                      HorizontalDashedDivider(space: 40),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+              ],
+            ),
+          ),
+
+          IntrinsicHeight(
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SkillView(
+                            title: 'Front-End & Back-End', dataList: coding),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+              ],
+            ),
+          ),
+
+          IntrinsicHeight(
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30.0, vertical: 30),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CarouselSlider(
+                          options: CarouselOptions(
+                            height: 400.0,
+                            autoPlay: true,
+                            enlargeCenterPage: true,
+                            initialPage: c.codingIndex.value,
+                            onPageChanged: (index, reason) {
+                              c.codingIndex.value = index;
+                            },
+                          ),
+                          carouselController: car2,
+                          items: codingImages.asMap().entries.map((entry) {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white24,
+                                    ),
+                                    child: Image.asset(
+                                      '${codingImages[entry.key]}',
+                                    ));
+                              },
+                            );
+                          }).toList(),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: codingImages.asMap().entries.map((entry) {
+                            return InkWell(
+                              child: Obx(
+                                () => Container(
+                                  width: 12,
+                                  height: 12,
+                                  margin: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 2),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: c.codingIndex.value == entry.key
+                                        ? Color.fromRGBO(0, 0, 0, 0.9)
+                                        : Color.fromRGBO(0, 0, 0, 0.4),
+                                  ),
+                                ),
+                              ),
+                              onTap: () => car2.animateToPage(entry.key),
+                            );
+                          }).toList(),
+                        ),
+
+                        // Obx( () => Text('${c.nowIndex.value}')),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: VerticalDivider(thickness: 2.0),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget _desktopLayout(BuildContext context) {
     final CarouselController car1 = CarouselController();
     final CarouselController car2 = CarouselController();
 
@@ -135,7 +431,8 @@ class SkillPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30.0, vertical: 30),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -155,27 +452,37 @@ class SkillPage extends StatelessWidget {
                               builder: (BuildContext context) {
                                 return Container(
                                     width: MediaQuery.of(context).size.width,
-                                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                    decoration:
-                                        BoxDecoration(color: Colors.white24,),
-                                    child: Image.asset('${algorithmImages[entry.key]}',));
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white24,
+                                    ),
+                                    child: Image.asset(
+                                      '${algorithmImages[entry.key]}',
+                                    ));
                               },
                             );
                           }).toList(),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: algorithmImages.asMap().entries.map((entry)  {
+                          children:
+                              algorithmImages.asMap().entries.map((entry) {
                             return InkWell(
-                              child: Obx (() => Container(
-                                width: 12,
-                                height: 12,
-                                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: c.algorithmIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
+                              child: Obx(
+                                () => Container(
+                                  width: 12,
+                                  height: 12,
+                                  margin: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 2),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: c.algorithmIndex.value == entry.key
+                                        ? Color.fromRGBO(0, 0, 0, 0.9)
+                                        : Color.fromRGBO(0, 0, 0, 0.4),
+                                  ),
                                 ),
-                              ),),
+                              ),
                               onTap: () => car1.animateToPage(entry.key),
                             );
                           }).toList(),
@@ -208,7 +515,8 @@ class SkillPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SkillView(title: 'Front-End & Back-End', dataList: coding),
+                        SkillView(
+                            title: 'Front-End & Back-End', dataList: coding),
                       ],
                     ),
                   ),
@@ -219,7 +527,8 @@ class SkillPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30.0, vertical: 30),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -239,27 +548,36 @@ class SkillPage extends StatelessWidget {
                               builder: (BuildContext context) {
                                 return Container(
                                     width: MediaQuery.of(context).size.width,
-                                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                    decoration:
-                                    BoxDecoration(color: Colors.white24,),
-                                    child: Image.asset('${codingImages[entry.key]}',));
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white24,
+                                    ),
+                                    child: Image.asset(
+                                      '${codingImages[entry.key]}',
+                                    ));
                               },
                             );
                           }).toList(),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: codingImages.asMap().entries.map((entry)  {
+                          children: codingImages.asMap().entries.map((entry) {
                             return InkWell(
-                              child: Obx (() => Container(
-                                width: 12,
-                                height: 12,
-                                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: c.codingIndex.value == entry.key ? Color.fromRGBO(0, 0, 0, 0.9) : Color.fromRGBO(0, 0, 0, 0.4),
+                              child: Obx(
+                                () => Container(
+                                  width: 12,
+                                  height: 12,
+                                  margin: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 2),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: c.codingIndex.value == entry.key
+                                        ? Color.fromRGBO(0, 0, 0, 0.9)
+                                        : Color.fromRGBO(0, 0, 0, 0.4),
+                                  ),
                                 ),
-                              ),),
+                              ),
                               onTap: () => car2.animateToPage(entry.key),
                             );
                           }).toList(),
@@ -280,5 +598,14 @@ class SkillPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (GetPlatform.isMobile) {
+      return _mobileLayout(context);
+    } else {
+      return _desktopLayout(context);
+    }
   }
 }

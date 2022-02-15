@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-class WebAppBar extends StatelessWidget with PreferredSizeWidget{
+class WebAppBar extends StatelessWidget with PreferredSizeWidget {
   const WebAppBar(this.itemScrollController, {Key? key}) : super(key: key);
 
   final ItemScrollController itemScrollController;
@@ -16,18 +17,22 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Row(
             children: <Widget>[
-              Text(
-                '#Min Park',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                ),
-              ),
+              InkWell(
+                  child: Text(
+                    '#Min Park',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                    ),
+                  ),
+                  onTap: () {
+                    Get.toNamed('/');
+                  }),
               const SizedBox(width: 40),
               TextButton(
                 style: ButtonStyle(
                   fixedSize:
-                  MaterialStateProperty.all(const Size.fromWidth(100)),
+                      MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
                   index: 0,
@@ -45,7 +50,7 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
               TextButton(
                 style: ButtonStyle(
                   fixedSize:
-                  MaterialStateProperty.all(const Size.fromWidth(100)),
+                      MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
                   index: 1,
@@ -54,16 +59,16 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
                 child: Text(
                   'Profile',
                   style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
               const SizedBox(width: 20),
               TextButton(
                 style: ButtonStyle(
                   fixedSize:
-                  MaterialStateProperty.all(const Size.fromWidth(100)),
+                      MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
                   index: 2,
@@ -81,7 +86,7 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
               TextButton(
                 style: ButtonStyle(
                   fixedSize:
-                  MaterialStateProperty.all(const Size.fromWidth(100)),
+                      MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
                   index: 3,
@@ -99,7 +104,7 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
               TextButton(
                 style: ButtonStyle(
                   fixedSize:
-                  MaterialStateProperty.all(const Size.fromWidth(100)),
+                      MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
                   index: 4,
@@ -117,7 +122,7 @@ class WebAppBar extends StatelessWidget with PreferredSizeWidget{
               TextButton(
                 style: ButtonStyle(
                   fixedSize:
-                  MaterialStateProperty.all(const Size.fromWidth(100)),
+                      MaterialStateProperty.all(const Size.fromWidth(100)),
                 ),
                 onPressed: () => itemScrollController.scrollTo(
                   index: 5,

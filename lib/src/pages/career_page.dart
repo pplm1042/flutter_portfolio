@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/pages/career_view.dart';
 import 'package:flutter_portfolio/src/resources/career_model.dart';
+import 'package:get/get.dart';
 import 'package:timelines/timelines.dart';
 
 class CareerPage extends StatelessWidget {
@@ -32,8 +33,6 @@ class CareerPage extends StatelessWidget {
     ),
   ];
 
-
-
   static const List<CareerModel> career3 = <CareerModel>[
     CareerModel(
       institution: '(주) 엔코아 플레이데이터',
@@ -48,7 +47,82 @@ class CareerPage extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget _mobileLayout(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            'Career',
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          FixedTimeline.tileBuilder(
+            theme: TimelineThemeData(
+              indicatorPosition: 0.15,
+                nodePosition: 0,
+                color: Colors.green,
+                indicatorTheme: IndicatorThemeData(size: 20),
+                connectorTheme: ConnectorThemeData(space: 30)),
+            builder: TimelineTileBuilder.connectedFromStyle(
+              contentsAlign: ContentsAlign.alternating,
+              contentsBuilder: (context, index) =>
+                  CareerView(dataList: career1),
+              connectorStyleBuilder: (context, index) =>
+                  ConnectorStyle.solidLine,
+              indicatorStyleBuilder: (context, index) =>
+                  IndicatorStyle.outlined,
+              itemCount: 1,
+            ),
+          ),
+          FixedTimeline.tileBuilder(
+            theme: TimelineThemeData(
+                indicatorPosition: 0.15,
+                nodePosition: 0,
+                color: Colors.green,
+                indicatorTheme: IndicatorThemeData(size: 20),
+                connectorTheme: ConnectorThemeData(space: 30)),
+            builder: TimelineTileBuilder.connectedFromStyle(
+              contentsAlign: ContentsAlign.alternating,
+              contentsBuilder: (context, index) =>
+                  CareerView(dataList: career2),
+              connectorStyleBuilder: (context, index) =>
+              ConnectorStyle.solidLine,
+              indicatorStyleBuilder: (context, index) =>
+              IndicatorStyle.outlined,
+              itemCount: 1,
+            ),
+          ),
+          FixedTimeline.tileBuilder(
+            theme: TimelineThemeData(
+                indicatorPosition: 0.15,
+                nodePosition: 0,
+                color: Colors.green,
+                indicatorTheme: IndicatorThemeData(size: 20),
+                connectorTheme: ConnectorThemeData(space: 30)),
+            builder: TimelineTileBuilder.connectedFromStyle(
+              contentsAlign: ContentsAlign.alternating,
+              contentsBuilder: (context, index) =>
+                  CareerView(dataList: career3),
+              connectorStyleBuilder: (context, index) =>
+              ConnectorStyle.solidLine,
+              indicatorStyleBuilder: (context, index) =>
+              IndicatorStyle.outlined,
+              itemCount: 1,
+            ),
+          ),
+
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget _desktopLayout(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 60.0),
       child: Column(
@@ -69,7 +143,8 @@ class CareerPage extends StatelessWidget {
                 connectorTheme: ConnectorThemeData(space: 100)),
             builder: TimelineTileBuilder.connectedFromStyle(
               contentsAlign: ContentsAlign.alternating,
-              contentsBuilder: (context, index) => CareerView(dataList : career1),
+              contentsBuilder: (context, index) =>
+                  CareerView(dataList: career1),
               connectorStyleBuilder: (context, index) =>
                   ConnectorStyle.solidLine,
               indicatorStyleBuilder: (context, index) =>
@@ -86,7 +161,7 @@ class CareerPage extends StatelessWidget {
               contentsAlign: ContentsAlign.alternating,
               oppositeContentsBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.only(left: 300),
-                child: CareerView(dataList : career2),
+                child: CareerView(dataList: career2),
               ),
               connectorStyleBuilder: (context, index) =>
                   ConnectorStyle.solidLine,
@@ -102,7 +177,8 @@ class CareerPage extends StatelessWidget {
                 connectorTheme: ConnectorThemeData(space: 100)),
             builder: TimelineTileBuilder.connectedFromStyle(
               contentsAlign: ContentsAlign.alternating,
-              contentsBuilder: (context, index) => CareerView(dataList : career3),
+              contentsBuilder: (context, index) =>
+                  CareerView(dataList: career3),
               connectorStyleBuilder: (context, index) =>
                   ConnectorStyle.solidLine,
               indicatorStyleBuilder: (context, index) =>
@@ -113,5 +189,14 @@ class CareerPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (GetPlatform.isMobile) {
+      return _mobileLayout(context);
+    } else {
+      return _desktopLayout(context);
+    }
   }
 }

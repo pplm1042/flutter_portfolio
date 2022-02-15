@@ -5,6 +5,7 @@ import 'package:flutter_portfolio/src/resources/data_model.dart';
 import 'package:flutter_portfolio/src/resources/horizontal_dashed_divider.dart';
 import 'package:flutter_portfolio/src/resources/information_model.dart';
 import 'package:flutter_portfolio/src/resources/url.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -59,7 +60,127 @@ class ProfilePage extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget _mobileLayout(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: NetworkImage(
+                  'https://cdn.crowdpic.net/list-thumb/thumb_l_8E1A44DD8454EDD9497EDF125C584461.jpg'),
+              fit: BoxFit.cover)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Profile',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            IntrinsicHeight(
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        InformationView(informationList: info),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                ],
+              ),
+            ),
+            IntrinsicHeight(
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        DataView(title: 'Education', dataList: education),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                ],
+              ),
+            ),
+            IntrinsicHeight(
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        DataView(title: 'Project', dataList: project),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                ],
+              ),
+            ),
+            IntrinsicHeight(
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        DataView(title: 'Certification', dataList: certification),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: VerticalDivider(thickness: 2.0),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+  @override
+  Widget _desktopLayout(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
@@ -122,4 +243,14 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Widget build(BuildContext context) {
+    if (GetPlatform.isMobile) {
+      return _mobileLayout(context);
+    } else {
+      return _desktopLayout(context);
+    }
+  }
 }
+
