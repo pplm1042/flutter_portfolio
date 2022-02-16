@@ -49,7 +49,7 @@ class InformationView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical:30.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[

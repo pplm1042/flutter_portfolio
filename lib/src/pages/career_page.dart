@@ -123,6 +123,9 @@ class CareerPage extends StatelessWidget {
 
   @override
   Widget _desktopLayout(BuildContext context) {
+
+    final Size size = MediaQuery.of(context).size;
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 60.0),
       child: Column(
@@ -160,7 +163,7 @@ class CareerPage extends StatelessWidget {
             builder: TimelineTileBuilder.connectedFromStyle(
               contentsAlign: ContentsAlign.alternating,
               oppositeContentsBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.only(left: 300),
+                padding: EdgeInsets.only(left: size.width * 0.232),
                 child: CareerView(dataList: career2),
               ),
               connectorStyleBuilder: (context, index) =>

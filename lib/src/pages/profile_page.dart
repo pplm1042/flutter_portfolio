@@ -188,7 +188,7 @@ class ProfilePage extends StatelessWidget {
                   'https://cdn.crowdpic.net/list-thumb/thumb_l_8E1A44DD8454EDD9497EDF125C584461.jpg'),
               fit: BoxFit.cover)),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 40),
+        padding: const EdgeInsets.symmetric(vertical: 120, horizontal: 40),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.center,
