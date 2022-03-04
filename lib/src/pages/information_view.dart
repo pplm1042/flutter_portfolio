@@ -31,7 +31,7 @@ class InformationView extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(top: 5, bottom: 5, right: 10),
-                      child: Icon(information.iconData, size: 15),
+                      child: Icon(information.iconData, size: 15, color: information.color),
                     ),
                     Flexible(
                       child: Text(information.detail, style: TextStyle(fontSize: 15),),
@@ -68,7 +68,7 @@ class InformationView extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(top: 5, bottom: 5, right: 10),
-                      child: Icon(information.iconData, size: 23),
+                      child: Icon(information.iconData, size: 23, color: information.color),
                     ),
                     Flexible(
                       child: Text(information.detail, style: TextStyle(fontSize: 18),),

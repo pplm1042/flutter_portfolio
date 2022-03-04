@@ -15,20 +15,24 @@ class ProfilePage extends StatelessWidget {
     InfoModel(
         urlKey: UrlKey.email,
         iconData: IconData(0xf018, fontFamily: 'MaterialIcons'),
-        detail: 'pplm1042@naver.com'),
+        detail: 'pplm1042@naver.com',
+        color: Colors.blue),
     InfoModel(
         urlKey: UrlKey.github,
         iconData: LineIcons.github,
-        detail: 'https://github.com/pplm1042'),
+        detail: 'https://github.com/pplm1042',
+        color: Colors.purple),
     InfoModel(
         urlKey: UrlKey.blog,
         iconData: LineIcons.bloggerB,
-        detail: 'https://blog.naver.com/pplm1042'),
+        detail: 'https://blog.naver.com/pplm1042',
+        color: Colors.green),
   ];
 
   static const List<DataModel> education = <DataModel>[
     DataModel(
-        period: '2020. 08. ~ 2020. 11.', detail: '패스트캠퍼스 코딩테스트 + 온라인 완주반 온라인 클래스 수료'),
+        period: '2020. 08. ~ 2020. 11.',
+        detail: '패스트캠퍼스 코딩테스트 + 온라인 완주반 온라인 클래스 수료'),
     DataModel(
         period: '2019. 03. ~ 2019. 10.', detail: '빅데이터 기반 AI인공지능 전문가 양성 과정 수료'),
     DataModel(period: '2012. 03. ~ 2016. 02.', detail: '청주대학교 전자공학과 졸업'),
@@ -37,26 +41,24 @@ class ProfilePage extends StatelessWidget {
 
   static const List<DataModel> project = <DataModel>[
     DataModel(
-        period: '2022. 01. ~ 2022. 02.', detail: 'Flutter 웹 프로젝트(포트폴리오) 개발(Flutter, Dart, Firebase, GetX)'),
+        period: '2022. 01. ~ 2022. 02.',
+        detail: 'Flutter 웹 프로젝트(포트폴리오) 개발(Flutter, Dart, Firebase, GetX)'),
     DataModel(
-        period: '2020. 04. ~ 2020. 07.', detail: '전주시 가로수 관리 시스템(Jeus6.0, Toad 6.0, Spring FrameWork, Java)'),
+        period: '2020. 04. ~ 2020. 07.',
+        detail: '전주시 가로수 관리 시스템(Jeus6.0, Toad 6.0, Spring FrameWork, Java)'),
     DataModel(
-        period: '2019. 07. ~ 2019. 09.', detail: '스트리머 편집자 매칭 사이트 ( HTML, CSS, JavaScript, Java8, JSP, Oracle 11g, Spring, Jquery, MyBatis, JSTL)'),
-    DataModel(
-        period: '2019. 04. ~ 2019. 06.', detail: 'PC방 관리 프로그램( Java 8 )'),
-    DataModel(
-        period: '2014.', detail: '당첨번호 추첨 프로그램 ( C# )'),
-    DataModel(
-        period: '2013.', detail: '도서관 자리예약 프로그램 ( C )'),
+        period: '2019. 07. ~ 2019. 09.',
+        detail:
+            '스트리머 편집자 매칭 사이트 ( HTML, CSS, JavaScript, Java8, JSP, Oracle 11g, Spring, Jquery, MyBatis, JSTL)'),
+    DataModel(period: '2019. 04. ~ 2019. 06.', detail: 'PC방 관리 프로그램( Java 8 )'),
+    DataModel(period: '2014.', detail: '당첨번호 추첨 프로그램 ( C# )'),
+    DataModel(period: '2013.', detail: '도서관 자리예약 프로그램 ( C )'),
   ];
 
   static const List<DataModel> certification = <DataModel>[
-    DataModel(
-        period: '2021. 03.', detail: 'TOEIC 750'),
-    DataModel(
-        period: '2019. 11.', detail: '정보처리기사'),
-    DataModel(
-        period: '2019. 08.', detail: 'OPIC IM2'),
+    DataModel(period: '2021. 03.', detail: 'TOEIC 750'),
+    DataModel(period: '2019. 11.', detail: '정보처리기사'),
+    DataModel(period: '2019. 08.', detail: 'OPIC IM2'),
   ];
 
   @override
@@ -161,7 +163,8 @@ class ProfilePage extends StatelessWidget {
                   Expanded(
                     child: Column(
                       children: [
-                        DataView(title: 'Certification', dataList: certification),
+                        DataView(
+                            title: 'Certification', dataList: certification),
                       ],
                     ),
                   ),
@@ -177,7 +180,6 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
-
 
   @override
   Widget _desktopLayout(BuildContext context) {
@@ -227,7 +229,8 @@ class ProfilePage extends StatelessWidget {
                       children: [
                         DataView(title: 'Project', dataList: project),
                         HorizontalDashedDivider(space: 40),
-                        DataView(title: 'Certification', dataList: certification),
+                        DataView(
+                            title: 'Certification', dataList: certification),
                       ],
                     ),
                   ),
@@ -253,4 +256,3 @@ class ProfilePage extends StatelessWidget {
     }
   }
 }
-
