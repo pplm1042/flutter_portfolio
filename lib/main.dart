@@ -11,6 +11,7 @@ Future<void> initServices() async {
 
 Future<bool> checkPlatform() async {
   log("checkPlatform");
+
   if (GetPlatform.isMobile) {
     return true;
   } else {
