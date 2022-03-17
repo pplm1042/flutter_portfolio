@@ -13,7 +13,7 @@ class CareerPage extends StatelessWidget {
       period: '2022. 03. ~ 재직 중',
       position: 'Flutter 개발자',
       detail: [
-        '\u2022 (주) 지티윈스 관리자 페이지 개발)',
+        '\u2022 (주) 지티윈스 관리자 페이지 개발',
       ],
     ),
   ];
