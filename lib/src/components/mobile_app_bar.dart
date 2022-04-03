@@ -19,6 +19,7 @@ class MyDrawer extends StatelessWidget {
               itemScrollController.scrollTo(
                   index: 0,
                   duration: const Duration(milliseconds: 500));
+              Get.back();
             },
           ),
           ListTile(
@@ -27,6 +28,7 @@ class MyDrawer extends StatelessWidget {
               itemScrollController.scrollTo(
                   index: 1,
                   duration: const Duration(milliseconds: 500));
+              Get.back();
             },
           ),
           ListTile(
@@ -35,6 +37,7 @@ class MyDrawer extends StatelessWidget {
               itemScrollController.scrollTo(
                   index: 2,
                   duration: const Duration(milliseconds: 500));
+              Get.back();
             },
           ),
           ListTile(
@@ -43,6 +46,7 @@ class MyDrawer extends StatelessWidget {
               itemScrollController.scrollTo(
                   index: 3,
                   duration: const Duration(milliseconds: 500));
+              Get.back();
             },
           ),
           ListTile(
@@ -51,6 +55,7 @@ class MyDrawer extends StatelessWidget {
               itemScrollController.scrollTo(
                   index: 4,
                   duration: const Duration(milliseconds: 500));
+              Get.back();
             },
           ),
           ListTile(
@@ -59,6 +64,7 @@ class MyDrawer extends StatelessWidget {
               itemScrollController.scrollTo(
                   index: 5,
                   duration: const Duration(milliseconds: 500));
+              Get.back();
             },
           ),
         ],

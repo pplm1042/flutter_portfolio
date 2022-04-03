@@ -42,13 +42,18 @@ class TemplatePage extends StatelessWidget {
   Widget _mobileLayout(BuildContext context) {
     final ItemScrollController itemScrollController = ItemScrollController();
 
-    return Scaffold(
-      appBar: MobileAppBar(),
-      body: ScrollablePositionedList.builder(
-          itemScrollController: itemScrollController,
-          itemCount: pages.length,
-          itemBuilder: (context, index) => pages[index]),
-      drawer: MyDrawer(itemScrollController),
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        appBar: MobileAppBar(),
+        body: ScrollablePositionedList.builder(
+            itemScrollController: itemScrollController,
+            itemCount: pages.length,
+            itemBuilder: (context, index) => pages[index]),
+        drawer: MyDrawer(itemScrollController),
+      ),
     );
   }
 
