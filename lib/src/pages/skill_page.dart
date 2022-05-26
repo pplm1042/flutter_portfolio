@@ -15,6 +15,15 @@ class SkillPage extends StatelessWidget {
 
   static const List<DataModel> flutter = <DataModel>[
     DataModel(
+        period: '2022. 05.',
+        detail: 'GetX & Syncfusion_chart 라이브러리를 이용한 실시간 주식 차트 구현'),
+    DataModel(
+        period: '                 ',
+        detail: 'Syncfusion Team과 Ticket을 통한 커뮤니케이션으로 버그 Fix 기여'),
+    DataModel(
+        period: '                 ',
+        detail: 'Git을 통한 형상 관리(PM으로서 최종 Merge 역할)'),
+    DataModel(
         period: '2022. 02.',
         detail: 'GetX를 포함한 다양한 라이브러리를 이용한 웹 프로젝트 개발(포트폴리오)'),
     DataModel(period: '                 ', detail: 'Git을 통한 형상 관리'),
@@ -37,6 +46,12 @@ class SkillPage extends StatelessWidget {
         detail: '빅데이터기반 AI(인공지능) 전문가 양성 과정 수료'),
   ];
 
+  static const List flutterImages = [
+    'assets/images/boss_app.webp',
+    'assets/images/syncfusion_ticket.webp',
+    'assets/images/syncfusion_bug_fixed.webp',
+  ];
+
   static const List algorithmImages = [
     'assets/images/certificate.webp',
     'assets/images/kakao.webp',
@@ -53,6 +68,7 @@ class SkillPage extends StatelessWidget {
   Widget _mobileLayout(BuildContext context) {
     final CarouselController car1 = CarouselController();
     final CarouselController car2 = CarouselController();
+    final CarouselController car3 = CarouselController();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15.0),
@@ -104,19 +120,60 @@ class SkillPage extends StatelessWidget {
                   child: VerticalDivider(thickness: 2.0),
                 ),
                 Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () => launchUrlByKey(UrlKey.homepage),
-                          child: Image.asset('assets/images/min_portfolio.webp',
-                              fit: BoxFit.fill),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CarouselSlider(
+                        options: CarouselOptions(
+                          height: 400.0,
+                          autoPlay: true,
+                          enlargeCenterPage: true,
+                          initialPage: c.flutterIndex.value,
+                          onPageChanged: (index, reason) {
+                            c.flutterIndex.value = index;
+                          },
                         ),
-                        HorizontalDashedDivider(space: 40),
-                      ],
-                    ),
+                        carouselController: car1,
+                        items: flutterImages.asMap().entries.map((entry) {
+                          return Builder(
+                            builder: (BuildContext context) {
+                              return Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white24,
+                                  ),
+                                  child: Image.asset(
+                                    '${flutterImages[entry.key]}',
+                                  ));
+                            },
+                          );
+                        }).toList(),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: flutterImages.asMap().entries.map((entry) {
+                          return InkWell(
+                            child: Obx(
+                              () => Container(
+                                width: 12,
+                                height: 12,
+                                margin: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 2),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: c.flutterIndex.value == entry.key
+                                      ? Color.fromRGBO(0, 0, 0, 0.9)
+                                      : Color.fromRGBO(0, 0, 0, 0.4),
+                                ),
+                              ),
+                            ),
+                            onTap: () => car1.animateToPage(entry.key),
+                          );
+                        }).toList(),
+                      ),
+                      HorizontalDashedDivider(space: 40),
+                    ],
                   ),
                 ),
                 Padding(
@@ -126,7 +183,6 @@ class SkillPage extends StatelessWidget {
               ],
             ),
           ),
-
           IntrinsicHeight(
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.center,
@@ -177,7 +233,7 @@ class SkillPage extends StatelessWidget {
                             c.algorithmIndex.value = index;
                           },
                         ),
-                        carouselController: car1,
+                        carouselController: car2,
                         items: algorithmImages.asMap().entries.map((entry) {
                           return Builder(
                             builder: (BuildContext context) {
@@ -212,7 +268,7 @@ class SkillPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            onTap: () => car1.animateToPage(entry.key),
+                            onTap: () => car2.animateToPage(entry.key),
                           );
                         }).toList(),
                       ),
@@ -227,7 +283,6 @@ class SkillPage extends StatelessWidget {
               ],
             ),
           ),
-
           IntrinsicHeight(
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.center,
@@ -256,7 +311,6 @@ class SkillPage extends StatelessWidget {
               ],
             ),
           ),
-
           IntrinsicHeight(
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.center,
@@ -283,7 +337,7 @@ class SkillPage extends StatelessWidget {
                               c.codingIndex.value = index;
                             },
                           ),
-                          carouselController: car2,
+                          carouselController: car3,
                           items: codingImages.asMap().entries.map((entry) {
                             return Builder(
                               builder: (BuildContext context) {
@@ -319,7 +373,7 @@ class SkillPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              onTap: () => car2.animateToPage(entry.key),
+                              onTap: () => car3.animateToPage(entry.key),
                             );
                           }).toList(),
                         ),
@@ -345,6 +399,7 @@ class SkillPage extends StatelessWidget {
   Widget _desktopLayout(BuildContext context) {
     final CarouselController car1 = CarouselController();
     final CarouselController car2 = CarouselController();
+    final CarouselController car3 = CarouselController();
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 60.0),
@@ -385,15 +440,63 @@ class SkillPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 30.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30.0, vertical: 30),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        InkWell(
-                          onTap: () => launchUrlByKey(UrlKey.homepage),
-                          child: Image.asset('assets/images/min_portfolio.webp',
-                              fit: BoxFit.fill),
+                        CarouselSlider(
+                          options: CarouselOptions(
+                            height: 400.0,
+                            autoPlay: true,
+                            enlargeCenterPage: true,
+                            initialPage: c.flutterIndex.value,
+                            onPageChanged: (index, reason) {
+                              c.flutterIndex.value = index;
+                            },
+                          ),
+                          carouselController: car1,
+                          items: flutterImages.asMap().entries.map((entry) {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white24,
+                                    ),
+                                    child: Image.asset(
+                                      '${flutterImages[entry.key]}',
+                                    ));
+                              },
+                            );
+                          }).toList(),
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: flutterImages.asMap().entries.map((entry) {
+                            return InkWell(
+                              child: Obx(
+                                () => Container(
+                                  width: 12,
+                                  height: 12,
+                                  margin: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 2),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: c.flutterIndex.value == entry.key
+                                        ? Color.fromRGBO(0, 0, 0, 0.9)
+                                        : Color.fromRGBO(0, 0, 0, 0.4),
+                                  ),
+                                ),
+                              ),
+                              onTap: () => car1.animateToPage(entry.key),
+                            );
+                          }).toList(),
+                        ),
+
+                        // Obx( () => Text('${c.nowIndex.value}')),
                       ],
                     ),
                   ),
@@ -446,7 +549,7 @@ class SkillPage extends StatelessWidget {
                               c.algorithmIndex.value = index;
                             },
                           ),
-                          carouselController: car1,
+                          carouselController: car2,
                           items: algorithmImages.asMap().entries.map((entry) {
                             return Builder(
                               builder: (BuildContext context) {
@@ -483,7 +586,7 @@ class SkillPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              onTap: () => car1.animateToPage(entry.key),
+                              onTap: () => car2.animateToPage(entry.key),
                             );
                           }).toList(),
                         ),
@@ -542,7 +645,7 @@ class SkillPage extends StatelessWidget {
                               c.codingIndex.value = index;
                             },
                           ),
-                          carouselController: car2,
+                          carouselController: car3,
                           items: codingImages.asMap().entries.map((entry) {
                             return Builder(
                               builder: (BuildContext context) {
@@ -578,7 +681,7 @@ class SkillPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              onTap: () => car2.animateToPage(entry.key),
+                              onTap: () => car3.animateToPage(entry.key),
                             );
                           }).toList(),
                         ),

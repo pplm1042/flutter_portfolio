@@ -13,7 +13,9 @@ class CareerPage extends StatelessWidget {
       period: '2022. 03. ~ 재직 중',
       position: 'Flutter 개발자',
       detail: [
-        '\u2022 (주) 지티윈스 Flutter 개발',
+        '\u2022 보스 모바일(주식 종목 추천 및 매매 어플리케이션) 개발',
+        '\u2022 GetX & Syncfusion_chart 등 다양한 라이브러리 사용',
+        '\u2022 Method Channel을 이용한 유안타 증권 API 사용 및 개발',
       ],
     ),
   ];
@@ -84,15 +86,15 @@ class CareerPage extends StatelessWidget {
               contentsBuilder: (context, index) =>
                   CareerView(dataList: career4),
               connectorStyleBuilder: (context, index) =>
-              ConnectorStyle.solidLine,
+                  ConnectorStyle.solidLine,
               indicatorStyleBuilder: (context, index) =>
-              IndicatorStyle.outlined,
+                  IndicatorStyle.outlined,
               itemCount: 1,
             ),
           ),
           FixedTimeline.tileBuilder(
             theme: TimelineThemeData(
-              indicatorPosition: 0.15,
+                indicatorPosition: 0.15,
                 nodePosition: 0,
                 color: Colors.green,
                 indicatorTheme: IndicatorThemeData(size: 20),
@@ -120,9 +122,9 @@ class CareerPage extends StatelessWidget {
               contentsBuilder: (context, index) =>
                   CareerView(dataList: career2),
               connectorStyleBuilder: (context, index) =>
-              ConnectorStyle.solidLine,
+                  ConnectorStyle.solidLine,
               indicatorStyleBuilder: (context, index) =>
-              IndicatorStyle.outlined,
+                  IndicatorStyle.outlined,
               itemCount: 1,
             ),
           ),
@@ -138,13 +140,12 @@ class CareerPage extends StatelessWidget {
               contentsBuilder: (context, index) =>
                   CareerView(dataList: career1),
               connectorStyleBuilder: (context, index) =>
-              ConnectorStyle.solidLine,
+                  ConnectorStyle.solidLine,
               indicatorStyleBuilder: (context, index) =>
-              IndicatorStyle.outlined,
+                  IndicatorStyle.outlined,
               itemCount: 1,
             ),
           ),
-
         ],
       ),
     );
@@ -152,7 +153,6 @@ class CareerPage extends StatelessWidget {
 
   @override
   Widget _desktopLayout(BuildContext context) {
-
     final Size size = MediaQuery.of(context).size;
 
     return Padding(
@@ -180,9 +180,9 @@ class CareerPage extends StatelessWidget {
                 child: CareerView(dataList: career4),
               ),
               connectorStyleBuilder: (context, index) =>
-              ConnectorStyle.solidLine,
+                  ConnectorStyle.solidLine,
               indicatorStyleBuilder: (context, index) =>
-              IndicatorStyle.outlined,
+                  IndicatorStyle.outlined,
               itemCount: 1,
             ),
           ),

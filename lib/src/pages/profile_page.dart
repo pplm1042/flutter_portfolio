@@ -41,8 +41,17 @@ class ProfilePage extends StatelessWidget {
 
   static const List<DataModel> project = <DataModel>[
     DataModel(
+        period: '2022. 03. ~     현재     ',
+        detail: '보스 모바일(주식 종목 추천 및 매매 어플리케이션) 개발 중(Flutter, Dart, GetX)'),
+    DataModel(
+        period: '2022. 03. ~ 2022. 03.',
+        detail: '지티윈스 사내 관리자페이지 개발(Flutter, Dart, GetX)'),
+    DataModel(
         period: '2022. 01. ~ 2022. 02.',
-        detail: 'Flutter 웹 프로젝트(포트폴리오) 개발(Flutter, Dart, Firebase, GetX)'),
+        detail: '웹 프로젝트(포트폴리오) 개발(Flutter, Dart, Firebase, GetX)'),
+    DataModel(
+        period: '2021. 10. ~ 2021. 12.',
+        detail: '브랜디어리 웹 사이트 개발(Flutter, Dart, Firebase, GetX)'),
     DataModel(
         period: '2020. 04. ~ 2020. 07.',
         detail: '전주시 가로수 관리 시스템(Jeus6.0, Toad 6.0, Spring FrameWork, Java)'),
