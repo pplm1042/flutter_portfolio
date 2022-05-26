@@ -135,18 +135,28 @@ class SkillPage extends StatelessWidget {
                         ),
                         carouselController: car1,
                         items: flutterImages.asMap().entries.map((entry) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white24,
-                                  ),
-                                  child: Image.asset(
-                                    '${flutterImages[entry.key]}',
-                                  ));
+                          return GestureDetector(
+                            onTap: () {
+                              Get.dialog(AlertDialog(
+                                content: Image.asset(
+                                  '${flutterImages[entry.key]}',
+                                ),
+                              ));
                             },
+                            child: Builder(
+                              builder: (BuildContext context) {
+                                return Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white24,
+                                    ),
+                                    child: Image.asset(
+                                      '${flutterImages[entry.key]}',
+                                    ));
+                              },
+                            ),
                           );
                         }).toList(),
                       ),
@@ -457,19 +467,28 @@ class SkillPage extends StatelessWidget {
                           ),
                           carouselController: car1,
                           items: flutterImages.asMap().entries.map((entry) {
-                            return Builder(
-                              builder: (BuildContext context) {
-                                return Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 5.0),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white24,
-                                    ),
-                                    child: Image.asset(
-                                      '${flutterImages[entry.key]}',
-                                    ));
+                            return GestureDetector(
+                              onTap: () {
+                                Get.dialog(AlertDialog(
+                                  content: Image.asset(
+                                    '${flutterImages[entry.key]}',
+                                  ),
+                                ));
                               },
+                              child: Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white24,
+                                      ),
+                                      child: Image.asset(
+                                        '${flutterImages[entry.key]}',
+                                      ));
+                                },
+                              ),
                             );
                           }).toList(),
                         ),
